@@ -5,10 +5,10 @@ import { Rv, RvLine, reducedMotion } from "../lib";
 
 const BUDGETS = ["до $5k", "$5–15k", "$15–50k", "$50k+"];
 const TERM_LINES = [
-  "> бриф.tokenized … ок",
-  "> распределение сервисных блоков … ок",
-  "> форвард-проход запланирован",
-  "> ответ: в течение 1 рабочего дня",
+  "> бриф принят … ок",
+  "> медиаплан собран … ок",
+  "> кампании в очереди на запуск",
+  "> ответ стратега: 1 рабочий день",
 ];
 
 export default function Contact() {
@@ -53,14 +53,14 @@ export default function Contact() {
             </Rv>
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight">
               <RvLine>Запустите</RvLine>
-              <RvLine delay={120}><span className="text-copper2">форвард-проход.</span></RvLine>
+              <RvLine delay={120}><span className="text-copper2">воронку роста.</span></RvLine>
             </h2>
             <Rv delay={200} className="mt-6 max-w-md leading-relaxed text-dim">
-              Выберите блоки, которые нужны проекту, и бросьте бриф в пайплайн — инженер-стратег
+              Выберите модули, которые нужны проекту, и бросьте бриф в воронку — стратег
               (живой человек) ответит в течение одного рабочего дня с первой оценкой и слотом для созвона.
             </Rv>
             <Rv delay={280} className="mt-10 space-y-2 font-mono text-sm">
-              <p><span className="text-copper2">почта</span> <a className="trace-link text-paper" href="mailto:hello@tensorforge.studio">hello@tensorforge.studio</a></p>
+              <p><span className="text-copper2">почта</span> <a className="trace-link text-paper" href="mailto:hello@growthforge.studio">hello@growthforge.studio</a></p>
               <p><span className="text-copper2">тел&nbsp;&nbsp;</span> <a className="trace-link text-paper" href="tel:+74951280064">+7 495 128 00 64</a></p>
               <p><span className="text-copper2">офис&nbsp;</span> <span className="text-dim">55.7558° N · 37.6173° E — и 6 часовых поясов на удалёнке</span></p>
             </Rv>
@@ -132,7 +132,7 @@ export default function Contact() {
 
                 <div className="mt-6">
                   <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">
-                    сервисные блоки <span className="text-copper2">(выбрано: {blocks.length})</span>
+                    модули воронки <span className="text-copper2">(выбрано: {blocks.length})</span>
                   </span>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {SERVICES.map((s) => {
@@ -159,7 +159,7 @@ export default function Contact() {
                   type="submit"
                   className="mt-8 w-full border border-copper bg-copper px-5 py-4 font-display text-sm font-bold tracking-[0.2em] uppercase text-ink transition-all duration-300 hover:bg-copper2 hover:shadow-[0_0_36px_rgba(201,128,63,0.45)] active:scale-[0.99]"
                 >
-                  Запустить проход →
+                  Запустить воронку →
                 </button>
                 <p className="mt-3 text-center font-mono text-[10px] tracking-[0.2em] uppercase text-dim">
                   бюджет: {budget} · NDA для начала разговора не нужен
@@ -182,16 +182,16 @@ export function Footer() {
             <a href="#dive" className="flex items-center gap-3">
               <ChipMark size={26} />
               <span className="font-display text-sm font-bold tracking-[0.18em] text-paper">
-                TENSOR<span className="text-copper2">FORGE</span>
+                GROWTH<span className="text-copper2">FORGE</span>
               </span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-dim">
-              Цифровая студия полного цикла. Сырые данные на входе — отрендеренный рост на выходе.
-              Собрана как трансформер: каждый блок заслуживает места в проходе.
+              Студия digital-маркетинга полного цикла. Сырой трафик на входе — измеримый рост на выходе.
+              Собрана как воронка: каждый модуль заслуживает места в потоке.
             </p>
           </div>
           {[
-            ["Пайплайн", [["#architecture", "Архитектура"], ["#services", "Блоки услуг"], ["#process", "Форвард-проход"]]],
+            ["Воронка", [["#architecture", "Механика"], ["#services", "Модули"], ["#process", "Цикл"]]],
             ["Вывод", [["#work", "Кейсы"], ["#specs", "Спецификации"], ["#contact", "Контакты"]]],
             ["Другое", [["https://github.com", "GitHub"], ["https://dribbble.com", "Dribbble"], ["https://www.linkedin.com", "LinkedIn"]]],
           ].map(([title, links]) => (
@@ -210,8 +210,8 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-seam pt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-dim sm:flex-row sm:items-center">
-          <p>© 2026 Tensorforge studio · отрендерено при 60 fps</p>
-          <p><span className="text-phos">▲</span> все системы в норме · аптайм 99.98%</p>
+          <p>© 2026 Growthforge studio · работает при 60 fps</p>
+          <p><span className="text-phos">▲</span> все кампании в норме · аптайм 99.98%</p>
         </div>
       </div>
     </footer>

@@ -49,14 +49,14 @@ export default function Cases() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/05</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">отрендеренный результат</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">результаты в цифрах</span>
           </Rv>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-              <RvLine>Логиты, которые мы уже</RvLine>
-              <RvLine delay={120}><span className="text-copper2">схлопнули в результат.</span></RvLine>
+              <RvLine>Гипотезы, которые уже</RvLine>
+              <RvLine delay={120}><span className="text-copper2">стали результатом.</span></RvLine>
             </h2>
-            <Rv delay={200} className="font-mono text-xs text-dim">3 из 128 пройденных прогонов ↓</Rv>
+            <Rv delay={200} className="font-mono text-xs text-dim">3 из 128 запущенных проектов ↓</Rv>
           </div>
         </div>
 

@@ -13,7 +13,7 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
   const h = 92;
   const y = (i: number) => 64 + i * h;
   return (
-    <svg viewBox="0 0 340 760" className="w-full max-w-sm" role="img" aria-label="Диаграмма пайплайна услуг">
+    <svg viewBox="0 0 340 760" className="w-full max-w-sm" role="img" aria-label="Диаграмма воронки услуг">
       <defs>
         <filter id="glowN" x="-40%" y="-40%" width="180%" height="180%">
           <feGaussianBlur stdDeviation="6" result="b" />
@@ -22,7 +22,7 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
       </defs>
 
       {/* вход */}
-      <text x="170" y="30" textAnchor="middle" className="fill-[#8fa396]" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3">БРИФ КЛИЕНТА ▸ ТОКЕНЫ</text>
+      <text x="170" y="30" textAnchor="middle" className="fill-[#8fa396]" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3">БРИФ ▸ СИГНАЛ РЫНКА</text>
       <line x1="170" y1="40" x2="170" y2={y(0) - 4} stroke="#c9803f" strokeWidth="1.4" className="dash-flow" />
 
       {SERVICES.map((s, i) => {
@@ -48,8 +48,8 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
       })}
 
       <line x1="170" y1={y(6) + 44} x2="170" y2={y(6) + 84} stroke="#c9803f" strokeWidth="1.4" className="dash-flow" />
-      <text x="170" y={y(6) + 104} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" fill="#e9c57f">SOFTMAX · ЗАПУСК</text>
-      <text x="170" y={y(6) + 124} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" className="fill-[#8fa396]">▸ РОСТ В ПРОДАКШНЕ</text>
+      <text x="170" y={y(6) + 104} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" fill="#e9c57f">МАСШТАБ · РОСТ LTV</text>
+      <text x="170" y={y(6) + 124} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" className="fill-[#8fa396]">▸ ПРИБЫЛЬНЫЙ РОСТ</text>
     </svg>
   );
 }
@@ -65,15 +65,15 @@ export default function ServiceBlocks() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/03</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">каждый блок — отдельный узел</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">каждое направление — отдельный модуль</span>
           </Rv>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight max-w-3xl">
-              <RvLine>Выберите блок.</RvLine>
-              <RvLine delay={120}><span className="text-copper2">Он встанет в проход.</span></RvLine>
+              <RvLine>Выберите модуль.</RvLine>
+              <RvLine delay={120}><span className="text-copper2">Он встанет в воронку.</span></RvLine>
             </h2>
             <Rv delay={200} className="max-w-xs font-mono text-xs leading-relaxed text-dim">
-              Каждая услуга — независимый блок пайплайна: подключайте по одному или цепочкой.
+              Каждая услуга — независимый модуль воронки: подключите один или соберите полный цикл.
             </Rv>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function ServiceBlocks() {
         <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
           <Rv className="lg:sticky lg:top-24 lg:self-start">
             <p className="mb-4 font-mono text-[10px] tracking-[0.3em] uppercase text-dim">
-              пайплайн · <span className="text-copper2">{sel.block}</span> активен
+              воронка · <span className="text-copper2">{sel.block}</span> активен
             </p>
             <Diagram selected={selected} onSelect={setSelected} />
           </Rv>

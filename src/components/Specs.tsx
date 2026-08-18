@@ -39,11 +39,11 @@ export default function Specs() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/06</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">даташит</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">паспорт студии</span>
           </Rv>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-            <RvLine>Спецификации студии,</RvLine>
-            <RvLine delay={120}><span className="text-copper2">измерены, а не обещаны.</span></RvLine>
+            <RvLine>Студия в цифрах —</RvLine>
+            <RvLine delay={120}><span className="text-copper2">измерено, а не обещано.</span></RvLine>
           </h2>
         </div>
 
@@ -56,8 +56,8 @@ export default function Specs() {
 
           <Rv delay={150} className="border border-seam bg-ink/70">
             <div className="flex items-center justify-between border-b border-seam px-5 py-3">
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-copper2">TENSORFORGE TF-9 · rev 4.2</p>
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-dim">док. DS-2026-RU</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-copper2">GROWTHFORGE · STUDIOSHEET v2.6</p>
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-dim">док. GF-2026-RU</p>
             </div>
             <dl>
               {SPEC_ROWS.map(([k, v], i) => (
@@ -75,7 +75,7 @@ export default function Specs() {
               ))}
             </dl>
             <div className="border-t border-seam px-5 py-3 font-mono text-[10px] tracking-[0.2em] uppercase text-dim">
-              * все цифры проверены по продакшн-логам 2017–2026
+              * все цифры проверены по логам кампаний 2017–2026
             </div>
           </Rv>
         </div>

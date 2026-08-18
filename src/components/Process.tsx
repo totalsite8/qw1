@@ -13,11 +13,11 @@ export default function Process() {
           </Rv>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-              <RvLine>Форвард-проход,</RvLine>
+              <RvLine>Полный цикл,</RvLine>
               <RvLine delay={120}><span className="text-copper2">бриф → рост.</span></RvLine>
             </h2>
             <Rv delay={200} className="font-mono text-xs text-dim max-w-xs leading-relaxed">
-              Пять стадий. Одно направление. Градиенты текут обратно после запуска.
+              Пять стадий. Одно направление. Аналитика возвращается в стратегию после каждого запуска.
             </Rv>
           </div>
         </div>
