@@ -13,7 +13,7 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
   const h = 92;
   const y = (i: number) => 64 + i * h;
   return (
-    <svg viewBox="0 0 340 760" className="w-full max-w-sm" role="img" aria-label="Service pipeline diagram">
+    <svg viewBox="0 0 340 760" className="w-full max-w-sm" role="img" aria-label="Диаграмма пайплайна услуг">
       <defs>
         <filter id="glowN" x="-40%" y="-40%" width="180%" height="180%">
           <feGaussianBlur stdDeviation="6" result="b" />
@@ -21,8 +21,8 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
         </filter>
       </defs>
 
-      {/* input */}
-      <text x="170" y="30" textAnchor="middle" className="fill-[#8fa396]" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3">CLIENT BRIEF ▸ TOKENS</text>
+      {/* вход */}
+      <text x="170" y="30" textAnchor="middle" className="fill-[#8fa396]" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3">БРИФ КЛИЕНТА ▸ ТОКЕНЫ</text>
       <line x1="170" y1="40" x2="170" y2={y(0) - 4} stroke="#c9803f" strokeWidth="1.4" className="dash-flow" />
 
       {SERVICES.map((s, i) => {
@@ -48,8 +48,8 @@ function Diagram({ selected, onSelect }: { selected: string; onSelect: (id: stri
       })}
 
       <line x1="170" y1={y(6) + 44} x2="170" y2={y(6) + 84} stroke="#c9803f" strokeWidth="1.4" className="dash-flow" />
-      <text x="170" y={y(6) + 104} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" fill="#e9c57f">SOFTMAX · LAUNCH</text>
-      <text x="170" y={y(6) + 124} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" className="fill-[#8fa396]">▸ RENDERED GROWTH</text>
+      <text x="170" y={y(6) + 104} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" fill="#e9c57f">SOFTMAX · ЗАПУСК</text>
+      <text x="170" y={y(6) + 124} textAnchor="middle" fontSize="11" fontFamily="IBM Plex Mono" letterSpacing="3" className="fill-[#8fa396]">▸ РОСТ В ПРОДАКШНЕ</text>
     </svg>
   );
 }
@@ -65,15 +65,15 @@ export default function ServiceBlocks() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/03</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">every block — a separate unit</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">каждый блок — отдельный узел</span>
           </Rv>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight max-w-3xl">
-              <RvLine>Select a block.</RvLine>
-              <RvLine delay={120}><span className="text-copper2">It joins the pass.</span></RvLine>
+              <RvLine>Выберите блок.</RvLine>
+              <RvLine delay={120}><span className="text-copper2">Он встанет в проход.</span></RvLine>
             </h2>
             <Rv delay={200} className="max-w-xs font-mono text-xs leading-relaxed text-dim">
-              Each service is an independent block of the pipeline — plug in one or chain them all.
+              Каждая услуга — независимый блок пайплайна: подключайте по одному или цепочкой.
             </Rv>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function ServiceBlocks() {
         <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
           <Rv className="lg:sticky lg:top-24 lg:self-start">
             <p className="mb-4 font-mono text-[10px] tracking-[0.3em] uppercase text-dim">
-              pipeline · <span className="text-copper2">{sel.block}</span> active
+              пайплайн · <span className="text-copper2">{sel.block}</span> активен
             </p>
             <Diagram selected={selected} onSelect={setSelected} />
           </Rv>
@@ -94,7 +94,7 @@ export default function ServiceBlocks() {
                 <Rv key={s.id} delay={i * 40}>
                   <div className={`border-b border-seam transition-colors duration-500 ${open ? "bg-ink/70" : "hover:bg-ink/40"}`}>
                     <button
-                      onClick={() => setSelected(open ? s.id : s.id)}
+                      onClick={() => setSelected(s.id)}
                       aria-expanded={open}
                       className="flex w-full items-center gap-4 px-2 py-5 text-left md:gap-6 md:px-4"
                     >
@@ -122,7 +122,7 @@ export default function ServiceBlocks() {
                           </div>
                           <div className="mt-6 grid grid-cols-2 gap-4 max-w-md">
                             <div className="border-l-2 border-copper/70 pl-3">
-                              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-dim">timeline</p>
+                              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-dim">срок</p>
                               <p className="mt-1 font-mono text-sm text-paper">{s.timeline}</p>
                             </div>
                             <div className="border-l-2 border-phos/70 pl-3">

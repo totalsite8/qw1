@@ -3,12 +3,12 @@ import { SERVICES } from "../data";
 import { ChipMark } from "./Nav";
 import { Rv, RvLine, reducedMotion } from "../lib";
 
-const BUDGETS = ["< $5k", "$5–15k", "$15–50k", "$50k+"];
+const BUDGETS = ["до $5k", "$5–15k", "$15–50k", "$50k+"];
 const TERM_LINES = [
-  "> brief.tokenized … ok",
-  "> allocating service blocks … ok",
-  "> forward pass scheduled",
-  "> reply ETA: 1 business day",
+  "> бриф.tokenized … ок",
+  "> распределение сервисных блоков … ок",
+  "> форвард-проход запланирован",
+  "> ответ: в течение 1 рабочего дня",
 ];
 
 export default function Contact() {
@@ -49,33 +49,33 @@ export default function Contact() {
             <Rv className="flex items-center gap-4 mb-5">
               <span className="font-mono text-copper text-sm tracking-[0.25em]">/07</span>
               <span className="h-px flex-1 bg-seam" />
-              <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">initiate</span>
+              <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">инициализация</span>
             </Rv>
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight">
-              <RvLine>Initiate a</RvLine>
-              <RvLine delay={120}><span className="text-copper2">forward pass.</span></RvLine>
+              <RvLine>Запустите</RvLine>
+              <RvLine delay={120}><span className="text-copper2">форвард-проход.</span></RvLine>
             </h2>
             <Rv delay={200} className="mt-6 max-w-md leading-relaxed text-dim">
-              Pick the blocks your project needs, drop the brief into the pipeline — an engineer-strategist
-              (a human one) replies within one business day with a first estimate and a call slot.
+              Выберите блоки, которые нужны проекту, и бросьте бриф в пайплайн — инженер-стратег
+              (живой человек) ответит в течение одного рабочего дня с первой оценкой и слотом для созвона.
             </Rv>
             <Rv delay={280} className="mt-10 space-y-2 font-mono text-sm">
-              <p><span className="text-copper2">mail</span> <a className="trace-link text-paper" href="mailto:hello@tensorforge.studio">hello@tensorforge.studio</a></p>
-              <p><span className="text-copper2">tel&nbsp;</span> <a className="trace-link text-paper" href="tel:+15550128064">+1 555 012 80 64</a></p>
-              <p><span className="text-copper2">hq&nbsp;&nbsp;</span> <span className="text-dim">51.5074° N · 0.1278° W — and 6 timezones remote</span></p>
+              <p><span className="text-copper2">почта</span> <a className="trace-link text-paper" href="mailto:hello@tensorforge.studio">hello@tensorforge.studio</a></p>
+              <p><span className="text-copper2">тел&nbsp;&nbsp;</span> <a className="trace-link text-paper" href="tel:+74951280064">+7 495 128 00 64</a></p>
+              <p><span className="text-copper2">офис&nbsp;</span> <span className="text-dim">55.7558° N · 37.6173° E — и 6 часовых поясов на удалёнке</span></p>
             </Rv>
           </div>
 
           <Rv delay={150}>
             {sent ? (
               <div className="border border-phos/50 bg-pit p-6 md:p-8">
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-phos">transmission accepted</p>
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-phos">передача принята</p>
                 <div className="mt-5 space-y-2 font-mono text-sm text-paper/90">
                   {TERM_LINES.slice(0, lines).map((l) => (
                     <p key={l} className="rv in">{l}</p>
                   ))}
                   <p className="text-phos">
-                    blocks: [{blocks.map((b) => SERVICES.find((s) => s.id === b)?.block).join(", ")}]
+                    блоки: [{blocks.map((b) => SERVICES.find((s) => s.id === b)?.block).join(", ")}]
                     <span className="term-caret">▌</span>
                   </p>
                 </div>
@@ -83,24 +83,24 @@ export default function Contact() {
                   onClick={() => { setSent(false); setName(""); setEmail(""); setBlocks(["strategy"]); }}
                   className="mt-8 border border-seam px-4 py-2 font-mono text-[11px] tracking-[0.25em] uppercase text-dim transition-colors hover:border-copper hover:text-copper2"
                 >
-                  ← send another
+                  ← отправить ещё
                 </button>
               </div>
             ) : (
               <form onSubmit={submit} className="border border-seam bg-pit/80 p-6 md:p-8">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
-                    <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">name</span>
+                    <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">имя</span>
                     <input
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      placeholder="Ada L."
+                      placeholder="Ада Л."
                       className="mt-2 w-full border border-seam bg-ink px-3 py-2.5 font-mono text-sm text-paper placeholder:text-dim/50 outline-none transition-colors focus:border-copper"
                     />
                   </label>
                   <label className="block">
-                    <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">email</span>
+                    <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">почта</span>
                     <input
                       type="email"
                       value={email}
@@ -113,7 +113,7 @@ export default function Contact() {
                 </div>
 
                 <div className="mt-6">
-                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">budget / month</span>
+                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">бюджет / месяц</span>
                   <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
                     {BUDGETS.map((b) => (
                       <button
@@ -132,7 +132,7 @@ export default function Contact() {
 
                 <div className="mt-6">
                   <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-dim">
-                    service blocks <span className="text-copper2">({blocks.length} selected)</span>
+                    сервисные блоки <span className="text-copper2">(выбрано: {blocks.length})</span>
                   </span>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {SERVICES.map((s) => {
@@ -159,10 +159,10 @@ export default function Contact() {
                   type="submit"
                   className="mt-8 w-full border border-copper bg-copper px-5 py-4 font-display text-sm font-bold tracking-[0.2em] uppercase text-ink transition-all duration-300 hover:bg-copper2 hover:shadow-[0_0_36px_rgba(201,128,63,0.45)] active:scale-[0.99]"
                 >
-                  Run the pass →
+                  Запустить проход →
                 </button>
                 <p className="mt-3 text-center font-mono text-[10px] tracking-[0.2em] uppercase text-dim">
-                  budget: {budget} · no nda required to start talking
+                  бюджет: {budget} · NDA для начала разговора не нужен
                 </p>
               </form>
             )}
@@ -186,14 +186,14 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-dim">
-              Full-cycle digital studio. Raw data in — rendered growth out.
-              Built like a transformer: every block earns its place in the pass.
+              Цифровая студия полного цикла. Сырые данные на входе — отрендеренный рост на выходе.
+              Собрана как трансформер: каждый блок заслуживает места в проходе.
             </p>
           </div>
           {[
-            ["Pipeline", [["#architecture", "Architecture"], ["#services", "Service blocks"], ["#process", "Forward pass"]]],
-            ["Output", [["#work", "Case studies"], ["#specs", "Specs"], ["#contact", "Contact"]]],
-            ["Elsewhere", [["https://github.com", "GitHub"], ["https://dribbble.com", "Dribbble"], ["https://www.linkedin.com", "LinkedIn"]]],
+            ["Пайплайн", [["#architecture", "Архитектура"], ["#services", "Блоки услуг"], ["#process", "Форвард-проход"]]],
+            ["Вывод", [["#work", "Кейсы"], ["#specs", "Спецификации"], ["#contact", "Контакты"]]],
+            ["Другое", [["https://github.com", "GitHub"], ["https://dribbble.com", "Dribbble"], ["https://www.linkedin.com", "LinkedIn"]]],
           ].map(([title, links]) => (
             <div key={title as string}>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-copper2">{title as string}</p>
@@ -210,8 +210,8 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-seam pt-6 font-mono text-[10px] tracking-[0.25em] uppercase text-dim sm:flex-row sm:items-center">
-          <p>© 2026 Tensorforge studio · rendered at 60 fps</p>
-          <p><span className="text-phos">▲</span> all systems nominal · uptime 99.98%</p>
+          <p>© 2026 Tensorforge studio · отрендерено при 60 fps</p>
+          <p><span className="text-phos">▲</span> все системы в норме · аптайм 99.98%</p>
         </div>
       </div>
     </footer>

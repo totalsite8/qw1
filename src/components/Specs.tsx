@@ -39,11 +39,11 @@ export default function Specs() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/06</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">datasheet</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">даташит</span>
           </Rv>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-            <RvLine>Studio specifications,</RvLine>
-            <RvLine delay={120}><span className="text-copper2">measured not promised.</span></RvLine>
+            <RvLine>Спецификации студии,</RvLine>
+            <RvLine delay={120}><span className="text-copper2">измерены, а не обещаны.</span></RvLine>
           </h2>
         </div>
 
@@ -57,7 +57,7 @@ export default function Specs() {
           <Rv delay={150} className="border border-seam bg-ink/70">
             <div className="flex items-center justify-between border-b border-seam px-5 py-3">
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-copper2">TENSORFORGE TF-9 · rev 4.2</p>
-              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-dim">doc. DS-2026-EN</p>
+              <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-dim">док. DS-2026-RU</p>
             </div>
             <dl>
               {SPEC_ROWS.map(([k, v], i) => (
@@ -67,7 +67,7 @@ export default function Specs() {
                     i % 2 ? "bg-pit/50" : ""
                   }`}
                 >
-                  <dt className="w-40 shrink-0 font-mono text-[10px] tracking-[0.25em] uppercase text-dim group-hover:text-copper2 transition-colors">
+                  <dt className="sm:w-44 shrink-0 font-mono text-[10px] tracking-[0.25em] uppercase text-dim group-hover:text-copper2 transition-colors">
                     {k}
                   </dt>
                   <dd className="text-sm text-paper/90">{v}</dd>
@@ -75,7 +75,7 @@ export default function Specs() {
               ))}
             </dl>
             <div className="border-t border-seam px-5 py-3 font-mono text-[10px] tracking-[0.2em] uppercase text-dim">
-              * all figures audited across 2017–2026 production logs
+              * все цифры проверены по продакшн-логам 2017–2026
             </div>
           </Rv>
         </div>

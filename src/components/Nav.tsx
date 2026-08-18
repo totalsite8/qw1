@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  ["#dive", "Silicon"],
-  ["#architecture", "Architecture"],
-  ["#services", "Service blocks"],
-  ["#process", "Forward pass"],
-  ["#work", "Work"],
-  ["#specs", "Specs"],
+  ["#dive", "Кремний"],
+  ["#architecture", "Архитектура"],
+  ["#services", "Блоки услуг"],
+  ["#process", "Форвард-проход"],
+  ["#work", "Кейсы"],
+  ["#specs", "Спецификации"],
 ];
 
 export function ChipMark({ size = 30 }: { size?: number }) {
@@ -47,16 +47,16 @@ export default function Nav() {
         </a>
         <nav className="ml-auto hidden items-center gap-6 lg:flex">
           {LINKS.map(([href, label]) => (
-            <a key={href} href={href} className="trace-link font-mono text-[11px] tracking-[0.22em] uppercase text-dim transition-colors hover:text-paper">
+            <a key={href} href={href} className="trace-link font-mono text-[11px] tracking-[0.18em] uppercase text-dim transition-colors hover:text-paper">
               {label}
             </a>
           ))}
         </nav>
         <a
           href="#contact"
-          className="ml-auto border border-copper bg-copper/10 px-4 py-2 font-mono text-[11px] tracking-[0.22em] uppercase text-copper2 transition-all duration-300 hover:bg-copper hover:text-ink lg:ml-6"
+          className="ml-auto border border-copper bg-copper/10 px-4 py-2 font-mono text-[11px] tracking-[0.18em] uppercase text-copper2 transition-all duration-300 hover:bg-copper hover:text-ink lg:ml-6"
         >
-          Start project
+          Запустить проект
         </a>
       </div>
     </header>

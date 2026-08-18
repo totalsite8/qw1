@@ -9,21 +9,21 @@ export default function Process() {
           <Rv className="flex items-center gap-4 mb-5">
             <span className="font-mono text-copper text-sm tracking-[0.25em]">/04</span>
             <span className="h-px flex-1 bg-seam" />
-            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">how a project runs</span>
+            <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">как идёт проект</span>
           </Rv>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.02] tracking-tight">
-              <RvLine>The forward pass,</RvLine>
-              <RvLine delay={120}><span className="text-copper2">brief → growth.</span></RvLine>
+              <RvLine>Форвард-проход,</RvLine>
+              <RvLine delay={120}><span className="text-copper2">бриф → рост.</span></RvLine>
             </h2>
             <Rv delay={200} className="font-mono text-xs text-dim max-w-xs leading-relaxed">
-              Five stages. One direction of travel. Gradients flow back after launch.
+              Пять стадий. Одно направление. Градиенты текут обратно после запуска.
             </Rv>
           </div>
         </div>
 
         <Rv className="relative">
-          {/* rail */}
+          {/* рельса */}
           <div className="absolute left-0 right-0 top-[22px] hidden h-px bg-moss lg:block">
             <div className="dash-flow-slow absolute inset-0" style={{ backgroundImage: "linear-gradient(90deg,#c9803f 0 6px, transparent 6px 14px)", backgroundSize: "14px 1px", backgroundRepeat: "repeat-x" }} />
             <span className="token-dot absolute top-1/2 h-[7px] w-[7px] -translate-y-1/2 rotate-45 bg-phos shadow-[0_0_12px_#3fd68b]" />

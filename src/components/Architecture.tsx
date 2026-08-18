@@ -3,13 +3,13 @@ import { Rv, RvLine } from "../lib";
 const ROWS = [
   {
     n: "01",
-    layer: "L0 · SILICON",
-    title: "The hardware of a studio",
-    text: "A GPU is only as good as its silicon. Ours is 24 in-house specialists, a nine-year process discipline and a stack that doesn't thermal-throttle under deadline load. No subcontractors, no dropped frames.",
+    layer: "L0 · КРЕМНИЙ",
+    title: "Железо студии",
+    text: "GPU хорош ровно настолько, насколько хорош его кремний. Наш — это 24 штатных специалиста, девятилетняя процессная дисциплина и стек, который не уходит в троттлинг под дедлайнами. Без субподряда, без пропущенных кадров.",
     map: [
-      ["CUDA cores", "designers, developers, strategists"],
-      ["VRAM", "accumulated expertise & reuse libraries"],
-      ["Power phases", "production capacity, 24/7 on critical"],
+      ["CUDA-ядра", "дизайнеры, разработчики, стратеги"],
+      ["VRAM", "накопленная экспертиза и библиотеки переиспользования"],
+      ["Фазы питания", "продакшн-мощность, 24/7 на критичном"],
     ],
     icon: (
       <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" aria-hidden="true">
@@ -22,13 +22,13 @@ const ROWS = [
   },
   {
     n: "02",
-    layer: "L1 · TRANSFORMER CORE",
-    title: "The pipeline of services",
-    text: "Inside the die, a transformer: embedding, attention, feed-forward, output head. Inside the studio, the same rhythm — strategy embeds the brief, design attends to users, development computes, content projects the result into language.",
+    layer: "L1 · ЯДРО ТРАНСФОРМЕРА",
+    title: "Пайплайн услуг",
+    text: "Внутри кристалла — трансформер: эмбеддинг, внимание, прямое распространение, выходная голова. Внутри студии — тот же ритм: стратегия эмбеддит бриф, дизайн внимает пользователям, разработка вычисляет, контент проецирует результат в язык.",
     map: [
-      ["EMBED + POS", "strategy & analytics, SEO positioning"],
-      ["ATTN × 8 heads", "design watching every plane at once"],
-      ["FFN + LM-HEAD", "development, marketing, content output"],
+      ["EMBED + POS", "стратегия и аналитика, SEO-позиционирование"],
+      ["ATTN × 8 голов", "дизайн, следящий за всеми плоскостями сразу"],
+      ["FFN + LM-HEAD", "разработка, маркетинг, выход контента"],
     ],
     icon: (
       <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" aria-hidden="true">
@@ -42,13 +42,13 @@ const ROWS = [
   },
   {
     n: "03",
-    layer: "L2 · TENSOR FIELD",
-    title: "The craft in every tensor",
-    text: "Zoom far enough and there are no departments left — only tensors. A kerning pair. A bid strategy. An indexation fix. Each one placed by hand, each gradient earned. This is the zoom level where projects are actually won.",
+    layer: "L2 · ТЕНЗОРНОЕ ПОЛЕ",
+    title: "Ремесло в каждом тензоре",
+    text: "Приблизьтесь достаточно — и отделов больше нет, остались только тензоры. Кернинг-пара. Bid-стратегия. Правка индексации. Каждый выставлен вручную, каждый градиент заслужен. Именно на этом масштабе выигрываются проекты.",
     map: [
-      ["Q · K · V", "questions, knowledge, value — per task"],
-      ["attention scores", "where we spend focus & budget"],
-      ["backprop", "retros, CRO iterations, compounding"],
+      ["Q · K · V", "вопросы, знания, ценность — под каждую задачу"],
+      ["Веса внимания", "куда уходят фокус и бюджет"],
+      ["Бэкпроп", "ретро, CRO-итерации, сложный процент"],
     ],
     icon: (
       <svg viewBox="0 0 64 64" className="h-full w-full" fill="none" aria-hidden="true">
@@ -70,33 +70,33 @@ export default function Architecture() {
     <section id="architecture" className="circuit-bg relative border-t border-seam">
       <div className="mx-auto max-w-7xl px-4 py-24 md:px-8 md:py-36">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
-          {/* sticky column */}
+          {/* sticky-колонка */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <Rv className="flex items-center gap-4 mb-5">
               <span className="font-mono text-copper text-sm tracking-[0.25em]">/02</span>
               <span className="h-px flex-1 bg-seam" />
-              <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">the mapping</span>
+              <span className="font-mono text-dim text-xs tracking-[0.3em] uppercase">маппинг</span>
             </Rv>
             <h2 className="font-display text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight">
-              <RvLine>One die.</RvLine>
-              <RvLine delay={120}><span className="text-copper2">Three depths.</span></RvLine>
-              <RvLine delay={240}>One studio.</RvLine>
+              <RvLine>Один кристалл.</RvLine>
+              <RvLine delay={120}><span className="text-copper2">Три глубины.</span></RvLine>
+              <RvLine delay={240}>Одна студия.</RvLine>
             </h2>
             <Rv delay={200} className="mt-6 max-w-md text-dim leading-relaxed">
-              We run the studio the way a GPU runs a transformer — layered, parallel, and honest about
-              where every watt goes. Scroll the stack: the same machine at three zoom levels.
+              Мы ведём студию так, как GPU ведёт трансформер — послойно, параллельно и честно о том,
+              куда уходит каждый ватт. Листайте стек: одна и та же машина на трёх масштабах.
             </Rv>
             <Rv delay={300} className="mt-8 border border-seam bg-pit/60 p-5">
-              <p className="font-mono text-[10px] tracking-[0.3em] text-dim uppercase mb-3">depth legend</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-dim uppercase mb-3">легенда глубин</p>
               <div className="space-y-2 font-mono text-xs">
-                <p><span className="text-phos">100–125%</span> <span className="text-dim">— silicon shell · the studio itself</span></p>
-                <p><span className="text-copper2">&gt; 125%</span> <span className="text-dim">— transformer core · service pipeline</span></p>
-                <p><span className="text-ember">&gt; 260%</span> <span className="text-dim">— tensor field · craft details</span></p>
+                <p><span className="text-phos">100–125%</span> <span className="text-dim">— кремниевая оболочка · сама студия</span></p>
+                <p><span className="text-copper2">&gt; 125%</span> <span className="text-dim">— ядро трансформера · пайплайн услуг</span></p>
+                <p><span className="text-ember">&gt; 260%</span> <span className="text-dim">— тензорное поле · ремесленные детали</span></p>
               </div>
             </Rv>
           </div>
 
-          {/* scrolling rows */}
+          {/* скроллящиеся строки */}
           <div className="space-y-10">
             {ROWS.map((row, i) => (
               <Rv key={row.n} delay={i * 80} className="group relative border border-seam bg-pit/70 p-6 md:p-9 transition-colors duration-500 hover:border-copper/50">

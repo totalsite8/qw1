@@ -184,8 +184,8 @@ export default function Scene() {
   const animToken = useRef(0);
   const diveToken = useRef(0);
 
-  const line1 = useScramble("RAW DATA IN.", go, 30);
-  const line2 = useScramble("RENDERED GROWTH OUT.", go, 26);
+  const line1 = useScramble("НА ВХОДЕ — ДАННЫЕ.", go, 30);
+  const line2 = useScramble("НА ВЫХОДЕ — РОСТ.", go, 26);
 
   useEffect(() => {
     const t = setTimeout(() => setGo(true), reducedMotion() ? 0 : 350);
@@ -598,7 +598,7 @@ export default function Scene() {
       var coreGlowRef = coreGlow;
 
       // token chips
-      ["GROW", "SCALE", "SHIP", "DATA", "SEO", "ROI"].forEach((w, i) => {
+      ["РОСТ", "МАСШТАБ", "ЗАПУСК", "ДАННЫЕ", "SEO", "ROI"].forEach((w, i) => {
         const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: tokenTexture(w), transparent: true, depthWrite: false }));
         spr.scale.set(0.72, 0.27, 1);
         tensor.add(spr);
@@ -824,27 +824,27 @@ export default function Scene() {
         />
         {failed && (
           <div className="absolute inset-0 grid place-items-center">
-            <p className="font-mono text-dim text-sm">WEBGL UNAVAILABLE — SCROLL ON, THE PIPELINE STILL RUNS.</p>
+            <p className="font-mono text-dim text-sm">WEBGL НЕДОСТУПЕН — КРУТИТЕ ДАЛЬШЕ: ПАЙПЛАЙН РАБОТАЕТ.</p>
           </div>
         )}
 
         {/* left rail caption */}
         <div className="pointer-events-none absolute left-5 top-1/2 hidden -translate-y-1/2 lg:block">
           <p className="font-mono text-[10px] tracking-[0.4em] text-dim uppercase" style={{ writingMode: "vertical-rl" }}>
-            TENSORFORGE TF-9 · LIVE SILICON PREVIEW · REV 4.2
+            TENSORFORGE TF-9 · КРЕМНИЙ В РЕАЛЬНОМ ВРЕМЕНИ · REV 4.2
           </p>
         </div>
 
         {/* zoom module */}
         <div className="absolute right-4 top-20 z-10 w-44 md:right-8 md:top-1/2 md:w-56 md:-translate-y-1/2">
-          <p className="font-mono text-[10px] tracking-[0.35em] text-dim uppercase">Optical zoom</p>
+          <p className="font-mono text-[10px] tracking-[0.35em] text-dim uppercase">Оптический зум</p>
           <p className="font-mono text-4xl md:text-5xl font-semibold text-paper tabular-nums leading-none mt-1">
             {pct}<span className="text-copper">%</span>
           </p>
           <div className="relative mt-3 h-1 w-full bg-moss/70">
             <div className="absolute inset-y-0 left-0 bg-copper transition-[width] duration-150" style={{ width: `${prog * 100}%` }} />
-            <span className="absolute -top-1 h-3 w-px bg-phos" style={{ left: markerPos(125) }} title="125% — core" />
-            <span className="absolute -top-1 h-3 w-px bg-ember" style={{ left: markerPos(260) }} title="260% — tensors" />
+            <span className="absolute -top-1 h-3 w-px bg-phos" style={{ left: markerPos(125) }} title="125% — ядро" />
+            <span className="absolute -top-1 h-3 w-px bg-ember" style={{ left: markerPos(260) }} title="260% — тензоры" />
           </div>
           <div className="mt-4 flex flex-col gap-1.5">
             {LAYERS.map((l) => (
@@ -870,17 +870,17 @@ export default function Scene() {
                 : "border-copper bg-copper/10 text-copper2 hover:bg-copper hover:text-ink"
             }`}
           >
-            {diving ? "■ stop dive" : "▶ auto-dive"}
+            {diving ? "■ стоп" : "▶ автодайв"}
           </button>
           <p className="mt-3 font-mono text-[9px] leading-relaxed tracking-[0.2em] text-dim/80 uppercase">
-            drag — orbit<br />scroll — zoom
+            перетаскивание — орбита<br />скролл — зум
           </p>
         </div>
 
         {/* headline */}
         <div className="absolute bottom-8 left-4 z-10 max-w-xl md:bottom-12 md:left-12">
           <p className="font-mono text-[10px] md:text-xs tracking-[0.35em] text-phos uppercase mb-3">
-            <span className="text-copper">//</span> full-cycle digital studio
+            <span className="text-copper">//</span> цифровая студия полного цикла
           </p>
           <h1 className="font-display font-bold leading-[1.04] tracking-tight text-paper text-[26px] sm:text-4xl lg:text-[52px]">
             <span className="block whitespace-pre">{line1 || "\u00A0"}</span>
@@ -899,7 +899,7 @@ export default function Scene() {
             pct < 112 ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="font-mono text-[10px] tracking-[0.35em] text-dim uppercase">scroll to zoom</span>
+          <span className="font-mono text-[10px] tracking-[0.35em] text-dim uppercase">скролл — погружение</span>
           <span className="relative h-12 w-px overflow-hidden bg-moss">
             <span className="hero-hint-line absolute inset-x-0 h-full bg-copper" />
           </span>
