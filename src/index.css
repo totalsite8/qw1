@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0f0d;
+  --color-pit: #070b09;
+  --color-pcb: #10201a;
+  --color-moss: #17382b;
+  --color-seam: #22443445;
+  --color-copper: #c9803f;
+  --color-copper2: #e5a45c;
+  --color-gold: #e9c57f;
+  --color-phos: #3fd68b;
+  --color-paper: #efe7d6;
+  --color-dim: #8fa396;
+  --color-ember: #e2795b;
+
+  --font-display: "Unbounded", "IBM Plex Sans", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #c9803f;
+  color: #0a0f0d;
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #070b09; }
+::-webkit-scrollbar-thumb { background: #22443488; border: 2px solid #070b09; }
+::-webkit-scrollbar-thumb:hover { background: #c9803f; }
+
+/* ---------- ambient layers ---------- */
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+.circuit-bg {
+  background-image:
+    radial-gradient(1100px 620px at 82% -10%, rgba(201, 128, 63, 0.1), transparent 62%),
+    radial-gradient(900px 700px at -12% 30%, rgba(63, 214, 139, 0.07), transparent 60%),
+    radial-gradient(760px 500px at 55% 118%, rgba(226, 121, 91, 0.06), transparent 60%),
+    linear-gradient(rgba(63, 214, 139, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 214, 139, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, auto, 56px 56px, 56px 56px;
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(239, 231, 214, 0.016) 0px,
+    rgba(239, 231, 214, 0.016) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* ---------- scroll reveal ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1), transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv.in { opacity: 1; transform: translateY(0); }
+
+.rv-line { overflow: hidden; }
+.rv-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv-line.in > span { transform: translateY(0); }
+
+/* ---------- copper trace underline ---------- */
+.trace-link { position: relative; }
+.trace-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: var(--color-copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.trace-link:hover::after,
+.trace-link.active::after { transform: scaleX(1); }
+
+/* ---------- marquee ---------- */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-x 30s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* ---------- animated dashed flow (SVG pipelines) ---------- */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -28; }
+}
+.dash-flow {
+  stroke-dasharray: 4 10;
+  animation: dash-flow 1.4s linear infinite;
+}
+@keyframes dash-flow-slow {
+  to { stroke-dashoffset: -48; }
+}
+.dash-flow-slow {
+  stroke-dasharray: 2 14;
+  animation: dash-flow-slow 2.6s linear infinite;
+}
+
+/* ---------- token pulse along process line ---------- */
+@keyframes token-run {
+  0% { left: -3%; opacity: 0; }
+  6% { opacity: 1; }
+  94% { opacity: 1; }
+  100% { left: 101%; opacity: 0; }
+}
+.token-dot { animation: token-run 5.2s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+
+/* ---------- misc living bits ---------- */
+@keyframes blink-soft { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.blink-soft { animation: blink-soft 1.6s steps(1) infinite; }
+
+@keyframes fan-spin { to { transform: rotate(360deg); } }
+.fan-spin { animation: fan-spin 3.2s linear infinite; transform-origin: center; }
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-y { animation: float-y 5s ease-in-out infinite; }
+
+@keyframes hero-hint {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}
+.hero-hint-line { animation: hero-hint 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+/* ken burns on case imagery */
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.09) translate(1.4%, -1.4%); }
+}
+.kb-img { transition: transform 1.4s cubic-bezier(0.19, 1, 0.22, 1); }
+.group\/case:hover .kb-img { transform: scale(1.07) translate(1%, -1%); }
+.kb-live { animation: kenburns 14s ease-in-out infinite alternate; }
+
+/* terminal caret */
+@keyframes caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.term-caret { animation: caret 1s steps(1) infinite; }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv, .rv-line > span { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .marquee-track, .dash-flow, .dash-flow-slow, .token-dot, .blink-soft, .fan-spin,
+  .float-y, .hero-hint-line, .kb-live { animation: none !important; }
+  .kb-img, .group\/case:hover .kb-img { transition: none; transform: none; }
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}
